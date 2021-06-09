@@ -10,5 +10,7 @@ services:
     volumes:
       - ./init.d:/docker-entrypoint-initdb.d
       - ./conf.d:/etc/mysql/conf.d
+    environment:
+      - "TZ=Asia/Tokyo"
     env_file:
       - .env
