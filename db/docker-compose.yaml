@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  test-db:
+    image: mysql:5.7
+    platform: linux/amd64
+    container_name: test-db
+    ports:
+      - 3307:3306
+    volumes:
+      - ./init.d:/docker-entrypoint-initdb.d
+      - ./conf.d:/etc/mysql/conf.d
+    env_file:
+      - .env
